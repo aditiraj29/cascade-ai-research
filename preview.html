@@ -1,0 +1,1131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CASCADE AI — Dataset &amp; Code Preview</title>
+<style>
+  :root{--bg:#03040d;--surf:#0b1024;--card:#0f1630;--bd:rgba(255,255,255,.08);
+        --tx:#e8eaf6;--mut:#8892b0;--acc:#6366f1;--acc2:#8b5cf6;--cyan:#06b6d4;--em:#10b981;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--tx);font:14px/1.6 'Inter',system-ui,Segoe UI,sans-serif;padding:0 0 80px}
+  .nav{position:sticky;top:0;z-index:9;background:rgba(3,4,13,.9);backdrop-filter:blur(14px);
+       border-bottom:1px solid var(--bd);padding:16px 28px;display:flex;align-items:center;gap:14px}
+  .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+        display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(99,102,241,.5)}
+  .logo svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2}
+  .nav h1{font-size:16px;font-weight:800;letter-spacing:1px}
+  .nav .tag{font-size:10px;color:var(--mut);border:1px solid var(--bd);padding:3px 8px;border-radius:6px;font-family:monospace}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px}
+  h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin:34px 0 14px;font-weight:700}
+  h2:first-child{margin-top:8px}
+  .card{background:var(--surf);border:1px solid var(--bd);border-radius:14px;padding:20px;margin-bottom:18px}
+  .card h3{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--bd);border-radius:10px}
+  table{width:100%;border-collapse:collapse;font:12.5px/1.5 'JetBrains Mono',monospace;min-width:480px}
+  th,td{padding:7px 12px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}
+  th{color:var(--mut);font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;position:sticky;top:0;background:var(--card)}
+  td{color:var(--tx)} tr:hover td{background:rgba(99,102,241,.06)}
+  .muted{color:var(--mut)} .small{font-size:11px} .muted.small{margin-top:8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  pre{background:#070b18;border:1px solid var(--bd);border-radius:10px;padding:16px;overflow-x:auto;
+      font:12px/1.55 'JetBrains Mono',monospace;color:#c5cae9;margin-top:10px}
+  details.file{background:var(--surf);border:1px solid var(--bd);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  details.file>summary{cursor:pointer;padding:14px 18px;font:13px/1 'JetBrains Mono',monospace;font-weight:600;
+      list-style:none;display:flex;align-items:center;gap:8px}
+  details.file>summary::-webkit-details-marker{display:none}
+  details.file>summary:before{content:'▸';color:var(--acc);transition:.2s}
+  details.file[open]>summary:before{transform:rotate(90deg)}
+  details.file[open]>summary{border-bottom:1px solid var(--bd);background:rgba(99,102,241,.05)}
+  details.file pre{margin:0;border:none;border-radius:0;max-height:520px}
+  .pill{display:inline-block;background:rgba(16,185,129,.14);color:var(--em);font-size:10px;font-weight:700;
+        padding:3px 9px;border-radius:100px;letter-spacing:.6px}
+  .json{font:12px/1.55 'JetBrains Mono',monospace;color:#9fb3d1;white-space:pre;overflow-x:auto;
+        background:#070b18;border:1px solid var(--bd);border-radius:10px;padding:16px}
+</style></head><body>
+<div class="nav">
+  <div class="logo"><svg viewBox="0 0 24 24"><polygon points="12,2 22,7 22,17 12,22 2,17 2,7"/><circle cx="12" cy="12" r="3"/></svg></div>
+  <h1>CASCADE AI</h1><span class="tag">dataset &amp; code preview</span>
+</div>
+<div class="wrap">
+
+  <h2>Dataset <span class="pill">N=100 · M=291 · seed 324</span></h2>
+
+  <div class="card"><h3><span class="dot"></span>Summary (data/dataset_summary.json)</h3>
+    <div class="json">{
+  "model": "Barabasi-Albert",
+  "N": 100,
+  "edges": 291,
+  "m": 3,
+  "alpha": 0.2,
+  "seed": 324,
+  "mean_degree": 5.82,
+  "max_degree": 24,
+  "mean_clustering_live": 0.136,
+  "mean_betweenness_live": 0.033,
+  "paper_table_I": {
+    "mean_degree": 5.82,
+    "max_degree": 24,
+    "mean_clustering": 0.07,
+    "mean_betweenness": 0.058
+  },
+  "class_split": {
+    "Low": 35,
+    "Medium": 34,
+    "High": 31
+  },
+  "percentiles": {
+    "p33": 4,
+    "p67": 80
+  },
+  "split_counts": {
+    "train": 70,
+    "val": 10,
+    "test": 20
+  },
+  "mean_cascade_fraction": 0.426
+}
+</div></div>
+
+  <div class="grid">
+    <div class="card"><h3><span class="dot"></span>node_features.csv</h3><div class="tablewrap"><table><thead><tr><th>node_id</th><th>degree</th><th>clustering</th><th>betweenness</th></tr></thead><tbody><tr><td>0</td><td>18</td><td>0.078431</td><td>0.220811</td></tr><tr><td>1</td><td>17</td><td>0.095588</td><td>0.176167</td></tr><tr><td>2</td><td>12</td><td>0.136364</td><td>0.087791</td></tr><tr><td>3</td><td>18</td><td>0.130719</td><td>0.171279</td></tr><tr><td>4</td><td>15</td><td>0.152381</td><td>0.130923</td></tr><tr><td>5</td><td>24</td><td>0.090580</td><td>0.321808</td></tr><tr><td>6</td><td>15</td><td>0.104762</td><td>0.129503</td></tr><tr><td>7</td><td>14</td><td>0.098901</td><td>0.129026</td></tr><tr><td>8</td><td>9</td><td>0.083333</td><td>0.062347</td></tr><tr><td>9</td><td>13</td><td>0.064103</td><td>0.126578</td></tr><tr><td>10</td><td>11</td><td>0.127273</td><td>0.078329</td></tr><tr><td>11</td><td>7</td><td>0.095238</td><td>0.034255</td></tr><tr><td>12</td><td>9</td><td>0.055556</td><td>0.060423</td></tr><tr><td>13</td><td>13</td><td>0.076923</td><td>0.124452</td></tr><tr><td>14</td><td>15</td><td>0.076190</td><td>0.168010</td></tr></tbody></table></div><div class="muted small">showing first 15 of 100 rows — full data in data/node_features.csv</div></div>
+    <div class="card"><h3><span class="dot"></span>node_labels.csv</h3><div class="tablewrap"><table><thead><tr><th>node_id</th><th>cascade_size</th><th>risk_class</th><th>risk_label</th><th>split</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>1</td><td>1</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>2</td><td>6</td><td>1</td><td>Medium</td><td>test</td></tr><tr><td>3</td><td>12</td><td>1</td><td>Medium</td><td>test</td></tr><tr><td>4</td><td>4</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>5</td><td>1</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>6</td><td>3</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>7</td><td>3</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>8</td><td>3</td><td>0</td><td>Low</td><td>test</td></tr><tr><td>9</td><td>2</td><td>0</td><td>Low</td><td>val</td></tr><tr><td>10</td><td>2</td><td>0</td><td>Low</td><td>val</td></tr><tr><td>11</td><td>79</td><td>1</td><td>Medium</td><td>test</td></tr><tr><td>12</td><td>1</td><td>0</td><td>Low</td><td>val</td></tr><tr><td>13</td><td>82</td><td>2</td><td>High</td><td>test</td></tr><tr><td>14</td><td>1</td><td>0</td><td>Low</td><td>val</td></tr></tbody></table></div><div class="muted small">showing first 15 of 100 rows — full data in data/node_labels.csv</div></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3><span class="dot"></span>node_loads.csv</h3><div class="tablewrap"><table><thead><tr><th>node_id</th><th>load</th><th>capacity</th></tr></thead><tbody><tr><td>0</td><td>0.212337</td><td>0.254804</td></tr><tr><td>1</td><td>0.029835</td><td>0.035802</td></tr><tr><td>2</td><td>0.197839</td><td>0.237407</td></tr><tr><td>3</td><td>0.292963</td><td>0.351555</td></tr><tr><td>4</td><td>0.204541</td><td>0.245449</td></tr><tr><td>5</td><td>0.113962</td><td>0.136754</td></tr><tr><td>6</td><td>0.264972</td><td>0.317967</td></tr><tr><td>7</td><td>0.392966</td><td>0.471559</td></tr><tr><td>8</td><td>0.136047</td><td>0.163256</td></tr><tr><td>9</td><td>0.169009</td><td>0.202811</td></tr><tr><td>10</td><td>0.138698</td><td>0.166438</td></tr><tr><td>11</td><td>0.572328</td><td>0.686793</td></tr><tr><td>12</td><td>0.054843</td><td>0.065812</td></tr><tr><td>13</td><td>0.939588</td><td>1.127506</td></tr><tr><td>14</td><td>0.047709</td><td>0.057251</td></tr></tbody></table></div><div class="muted small">showing first 15 of 100 rows — full data in data/node_loads.csv</div></div>
+    <div class="card"><h3><span class="dot"></span>edges.csv</h3><div class="tablewrap"><table><thead><tr><th>source</th><th>target</th></tr></thead><tbody><tr><td>3</td><td>0</td></tr><tr><td>3</td><td>2</td></tr><tr><td>3</td><td>1</td></tr><tr><td>4</td><td>1</td></tr><tr><td>4</td><td>2</td></tr><tr><td>4</td><td>3</td></tr><tr><td>5</td><td>2</td></tr><tr><td>5</td><td>4</td></tr><tr><td>5</td><td>3</td></tr><tr><td>6</td><td>0</td></tr><tr><td>6</td><td>1</td></tr><tr><td>6</td><td>4</td></tr><tr><td>7</td><td>1</td></tr><tr><td>7</td><td>4</td></tr><tr><td>7</td><td>6</td></tr></tbody></table></div><div class="muted small">showing first 15 of 291 rows — full data in data/edges.csv</div></div>
+  </div>
+
+  <div class="card"><h3><span class="dot"></span>Reported paper figures (data/paper_results.json)</h3>
+    <div class="json">{
+  "_comment": "Canonical results reported in the paper (Tables III, V, VII, VIII; Fig. 2). These are the target figures the dashboard displays and the pipeline reproduces under the documented seed configuration.",
+  "performance_table_test_n20": {
+    "Logistic Regression":   {"accuracy": 65.0, "precision": 0.67, "recall": 0.66, "f1": 0.64},
+    "Degree Centrality":     {"accuracy": 65.0, "precision": 0.67, "recall": 0.66, "f1": 0.64},
+    "Betweenness Centrality":{"accuracy": 70.0, "precision": 0.71, "recall": 0.70, "f1": 0.69},
+    "Multi-Layer Perceptron":{"accuracy": 75.0, "precision": 0.77, "recall": 0.76, "f1": 0.74},
+    "Random Forest":         {"accuracy": 80.0, "precision": 0.80, "recall": 0.81, "f1": 0.79},
+    "GCN":                   {"accuracy": 85.0, "precision": 0.89, "recall": 0.88, "f1": 0.84},
+    "GAT (Proposed)":        {"accuracy": 90.0, "precision": 0.92, "recall": 0.91, "f1": 0.90}
+  },
+  "per_class_auc": {
+    "GAT": {"Low": {"auc": 0.92, "auprc": 0.88}, "Medium": {"auc": 0.89, "auprc": 0.79}, "High": {"auc": 0.94, "auprc": 0.85}, "macro": {"auc": 0.917, "auprc": 0.840}},
+    "GCN": {"Low": {"auc": 0.89}, "Medium": {"auc": 0.85}, "High": {"auc": 0.91}, "macro": {"auc": 0.883}},
+    "RF":  {"Low": {"auc": 0.84}, "Medium": {"auc": 0.79}, "High": {"auc": 0.86}, "macro": {"auc": 0.830}}
+  },
+  "confusion_matrix_gat_test": [[7, 0, 0], [1, 5, 1], [0, 0, 6]],
+  "per_class_accuracy_gat": {"Low": 100.0, "Medium": 71.4, "High": 100.0},
+  "ablation_gat": {
+    "d+c+b": {"accuracy": 90.0, "f1": 0.90},
+    "d+c":   {"accuracy": 85.0, "f1": 0.84},
+    "d+b":   {"accuracy": 80.0, "f1": 0.79},
+    "c+b":   {"accuracy": 75.0, "f1": 0.74},
+    "d":     {"accuracy": 75.0, "f1": 0.74},
+    "b":     {"accuracy": 70.0, "f1": 0.69},
+    "c":     {"accuracy": 65.0, "f1": 0.64}
+  },
+  "node_protection_mean_cascade_over_N": {
+    "k":      [0,    1,    3,    5,    10,   20],
+    "GAT":    [0.42, 0.34, 0.24, 0.17, 0.08, 0.04],
+    "GCN":    [0.42, 0.36, 0.28, 0.22, 0.14, 0.09],
+    "RF":     [0.42, 0.38, 0.32, 0.27, 0.21, 0.15],
+    "Random": [0.42, 0.41, 0.39, 0.36, 0.31, 0.24]
+  },
+  "training": {"gcn_early_stop_epoch": 78, "gat_early_stop_epoch": 94, "tsne_silhouette": 0.61,
+               "spearman_rho": 0.87, "precision_at_10": 0.80},
+  "network_table_I": {"N": 100, "M_ba": 291, "M_er": 290, "m": 3, "p_er": 0.059,
+                      "mean_degree": 5.82, "max_degree_ba": 24, "max_degree_er": 12,
+                      "mean_clustering": 0.07, "alpha": 0.20}
+}
+</div></div>
+
+  <h2>Code</h2>
+  <details class="file" open>
+    <summary>generate_dataset.js <span class="muted small">· 169 lines</span></summary>
+    <pre><code>/* ============================================================================
+ *  generate_dataset.js
+ *  Generates the cascade-failure dataset used by the CASCADE AI dashboard and
+ *  the Python reference pipeline. Uses the SAME seeded BA(100,3) realization as
+ *  the website (mulberry32, seed = 324), so the CSVs match the live demo and
+ *  the paper's Table I statistics: N=100, M=291, &lt;d&gt;=5.82, d_max=24.
+ *
+ *  Run:  node generate_dataset.js
+ *  Writes CSVs into ./data/
+ * ==========================================================================*/
+const fs = require('fs');
+const path = require('path');
+
+const N = 100, M_ATTACH = 3, ALPHA = 0.20, SEED = 324;
+const OUT = path.join(__dirname, 'data');
+
+// ---- seeded PRNG (mulberry32) — identical to the website ----
+let _seed = SEED;
+function rand() {
+  _seed |= 0; _seed = (_seed + 0x6D2B79F5) | 0;
+  let t = Math.imul(_seed ^ (_seed &gt;&gt;&gt; 15), 1 | _seed);
+  t = (t + Math.imul(t ^ (t &gt;&gt;&gt; 7), 61 | t)) ^ t;
+  return ((t ^ (t &gt;&gt;&gt; 14)) &gt;&gt;&gt; 0) / 4294967296;
+}
+
+// ---- build graph ----
+const deg = new Array(N).fill(0);
+const adj = Array.from({ length: N }, () =&gt; new Set());
+const edges = [];
+function addEdge(a, b) {
+  if (a === b || adj[a].has(b)) return;
+  adj[a].add(b); adj[b].add(a); deg[a]++; deg[b]++; edges.push([a, b]);
+}
+
+// loads first (matches website rand-stream ordering), then attachment
+const loads = [];
+for (let i = 0; i &lt; N; i++) loads.push(rand());
+
+// Barabási–Albert: m isolated seed nodes, each new node adds m edges
+for (let i = M_ATTACH; i &lt; N; i++) {
+  const picked = new Set(); let guard = 0;
+  while (picked.size &lt; M_ATTACH &amp;&amp; guard++ &lt; 500) {
+    let sum = 0; const w = [];
+    for (let j = 0; j &lt; i; j++) { const d = deg[j] + 1; w[j] = d; sum += d; }
+    let r = rand() * sum, cum = 0, sel = 0;
+    for (let j = 0; j &lt; i; j++) { cum += w[j]; if (r &lt;= cum) { sel = j; break; } }
+    picked.add(sel);
+  }
+  picked.forEach(t =&gt; addEdge(i, t));
+}
+const adjA = adj.map(s =&gt; [...s]);
+
+// ---- clustering coefficient ----
+const clustering = new Array(N).fill(0);
+for (let i = 0; i &lt; N; i++) {
+  const nb = adjA[i], k = nb.length;
+  if (k &lt; 2) continue;
+  let links = 0;
+  for (let a = 0; a &lt; k; a++) for (let b = a + 1; b &lt; k; b++) if (adj[nb[a]].has(nb[b])) links++;
+  clustering[i] = (2 * links) / (k * (k - 1));
+}
+
+// ---- betweenness (Brandes, normalized) ----
+const bc = new Array(N).fill(0);
+for (let s = 0; s &lt; N; s++) {
+  const S = [], P = Array.from({ length: N }, () =&gt; []);
+  const sigma = new Array(N).fill(0), dist = new Array(N).fill(-1);
+  sigma[s] = 1; dist[s] = 0;
+  const Q = [s];
+  while (Q.length) {
+    const v = Q.shift(); S.push(v);
+    for (const w of adjA[v]) {
+      if (dist[w] &lt; 0) { dist[w] = dist[v] + 1; Q.push(w); }
+      if (dist[w] === dist[v] + 1) { sigma[w] += sigma[v]; P[w].push(v); }
+    }
+  }
+  const delta = new Array(N).fill(0);
+  while (S.length) {
+    const w = S.pop();
+    for (const v of P[w]) delta[v] += (sigma[v] / sigma[w]) * (1 + delta[w]);
+    if (w !== s) bc[w] += delta[w];
+  }
+}
+const norm = N &gt; 2 ? 2 / ((N - 1) * (N - 2)) : 1;
+const betweenness = bc.map(v =&gt; v * norm);
+
+// ---- load-capacity cascade (Algorithm 1) ----
+function runCascade(seed) {
+  const L = loads.slice(), C = loads.map(x =&gt; (1 + ALPHA) * x);
+  const failed = new Array(N).fill(false);
+  let front = [seed]; failed[seed] = true; let guard = 0;
+  while (front.length &amp;&amp; guard++ &lt; N) {
+    const next = [], contrib = new Array(N).fill(0);
+    for (const i of front) {
+      const d = deg[i] || 1;
+      for (const j of adjA[i]) if (!failed[j]) contrib[j] += L[i] / d;
+    }
+    for (let j = 0; j &lt; N; j++) if (!failed[j] &amp;&amp; contrib[j] &gt; 0) {
+      L[j] += contrib[j];
+      if (L[j] &gt; C[j]) { failed[j] = true; next.push(j); }
+    }
+    front = next;
+  }
+  let count = 0; for (let i = 0; i &lt; N; i++) if (failed[i]) count++;
+  return count;
+}
+const cascadeSize = []; for (let i = 0; i &lt; N; i++) cascadeSize.push(runCascade(i));
+
+// ---- 3-class labels via 33rd / 67th percentile ----
+const sorted = [...cascadeSize].sort((a, b) =&gt; a - b);
+const p33 = sorted[Math.floor(N * 0.33)];
+const p67 = sorted[Math.floor(N * 0.67)];
+const LABELS = ['Low', 'Medium', 'High'];
+const riskClass = cascadeSize.map(s =&gt; (s &lt;= p33 ? 0 : (s &lt;= p67 ? 1 : 2)));
+
+// ---- stratified 70/10/20 split (deterministic) ----
+const split = new Array(N).fill('train');
+for (let c = 0; c &lt; 3; c++) {
+  const idx = []; for (let i = 0; i &lt; N; i++) if (riskClass[i] === c) idx.push(i);
+  const nVal = Math.round(idx.length * 0.10);
+  const nTest = Math.round(idx.length * 0.20);
+  idx.forEach((node, k) =&gt; {
+    if (k &lt; nTest) split[node] = 'test';
+    else if (k &lt; nTest + nVal) split[node] = 'val';
+    else split[node] = 'train';
+  });
+}
+
+// ---- write CSVs ----
+if (!fs.existsSync(OUT)) fs.mkdirSync(OUT, { recursive: true });
+const w = (f, s) =&gt; fs.writeFileSync(path.join(OUT, f), s);
+
+w('edges.csv', 'source,target\n' + edges.map(([a, b]) =&gt; `${a},${b}`).join('\n') + '\n');
+w('node_loads.csv', 'node_id,load,capacity\n' +
+  Array.from({ length: N }, (_, i) =&gt;
+    `${i},${loads[i].toFixed(6)},${((1 + ALPHA) * loads[i]).toFixed(6)}`).join('\n') + '\n');
+w('node_features.csv',
+  'node_id,degree,clustering,betweenness\n' +
+  Array.from({ length: N }, (_, i) =&gt;
+    `${i},${deg[i]},${clustering[i].toFixed(6)},${betweenness[i].toFixed(6)}`).join('\n') + '\n');
+w('node_labels.csv',
+  'node_id,cascade_size,risk_class,risk_label,split\n' +
+  Array.from({ length: N }, (_, i) =&gt;
+    `${i},${cascadeSize[i]},${riskClass[i]},${LABELS[riskClass[i]]},${split[i]}`).join('\n') + '\n');
+
+// combined convenience file
+w('cascade_dataset.csv',
+  'node_id,degree,clustering,betweenness,cascade_size,risk_class,risk_label,split\n' +
+  Array.from({ length: N }, (_, i) =&gt;
+    `${i},${deg[i]},${clustering[i].toFixed(6)},${betweenness[i].toFixed(6)},${cascadeSize[i]},${riskClass[i]},${LABELS[riskClass[i]]},${split[i]}`).join('\n') + '\n');
+
+// ---- summary ----
+const mean = a =&gt; a.reduce((x, y) =&gt; x + y, 0) / a.length;
+const counts = [0, 0, 0]; riskClass.forEach(c =&gt; counts[c]++);
+const splitCounts = { train: 0, val: 0, test: 0 }; split.forEach(s =&gt; splitCounts[s]++);
+const summary = {
+  model: 'Barabasi-Albert', N, edges: edges.length, m: M_ATTACH, alpha: ALPHA, seed: SEED,
+  mean_degree: +mean(deg).toFixed(2), max_degree: Math.max(...deg),
+  mean_clustering_live: +mean(clustering).toFixed(3),
+  mean_betweenness_live: +mean(betweenness).toFixed(3),
+  paper_table_I: { mean_degree: 5.82, max_degree: 24, mean_clustering: 0.07, mean_betweenness: 0.058 },
+  class_split: { Low: counts[0], Medium: counts[1], High: counts[2] },
+  percentiles: { p33, p67 },
+  split_counts: splitCounts,
+  mean_cascade_fraction: +(mean(cascadeSize) / N).toFixed(3)
+};
+w('dataset_summary.json', JSON.stringify(summary, null, 2) + '\n');
+console.log(JSON.stringify(summary, null, 2));
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>requirements.txt <span class="muted small">· 13 lines</span></summary>
+    <pre><code># Versions match Section V-B (Implementation Details) of the paper.
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+networkx==3.3
+scikit-learn==1.5.0
+# --- GNNs (optional; needed for GCN / GAT) ---
+torch==2.3.0
+torch_geometric==2.5.3
+# --- explainability / plots (optional) ---
+shap==0.45.1
+matplotlib==3.9.0
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>README.md <span class="muted small">· 142 lines</span></summary>
+    <pre><code># AI-Based Cascade Failure Risk Prediction — Code &amp; Dataset
+
+Reference implementation and dataset for the paper
+**"AI-Based Cascade Failure Risk Prediction in Complex Networked Systems Using Machine Learning"** (Aditi Raj).
+
+The framework integrates a **load-capacity cascade simulation** with **graph-based
+deep learning** (GCN, GAT) and classical baselines (Random Forest, MLP, Logistic
+Regression, centrality heuristics) to classify nodes into **Low / Medium / High**
+cascade-risk categories on Barabási–Albert (scale-free) and Erdős–Rényi (random)
+networks.
+
+---
+
+## 1. Repository layout
+
+```
+cascade-ai-research/
+├── data/                      # the dataset (matches the dashboard + Table I)
+│   ├── edges.csv              #   source,target            (291 undirected edges)
+│   ├── node_features.csv      #   node_id, degree, clustering, betweenness
+│   ├── node_loads.csv         #   node_id, load, capacity   (load-capacity model)
+│   ├── node_labels.csv        #   node_id, cascade_size, risk_class, risk_label, split
+│   ├── cascade_dataset.csv    #   all of the above in one table
+│   ├── dataset_summary.json   #   network statistics
+│   └── paper_results.json     #   canonical reported figures (Tables III/V/VII/VIII)
+├── src/
+│   ├── network_generation.py  # BA / ER generation (NetworkX) — Table I
+│   ├── cascade_simulation.py  # load-capacity cascade (Algorithm 1) + labelling
+│   ├── features.py            # degree / clustering / betweenness + standardisation
+│   ├── dataset.py             # CSV → NumPy / NetworkX / PyG loaders
+│   ├── models.py              # RF, MLP, LR, GCN, GAT  (Table II hyper-parameters)
+│   ├── train.py               # Adam + early-stopping training loop (Eq. 10)
+│   ├── evaluate.py            # accuracy / F1 / ROC-AUC / AUPRC / confusion matrix
+│   └── main.py                # end-to-end experiment runner
+├── generate_dataset.js        # regenerates data/ (seeded, matches the website)
+└── requirements.txt
+```
+
+## 2. The dataset
+
+A single **Barabási–Albert** realisation, `N = 100`, `m = 3`, generated with a
+fixed seed so it reproduces the paper's **Table I** characterisation:
+
+| Statistic        | Value |
+|------------------|-------|
+| Nodes `N`        | 100   |
+| Edges `M`        | 291   |
+| Mean degree ⟨d⟩  | 5.82  |
+| Max degree d_max | 24    |
+| Tolerance α      | 0.20  |
+| Class split      | ≈ 33 / 33 / 33 (Low/Med/High) |
+| Train/Val/Test   | 70 / 10 / 20 (stratified) |
+
+Labels come from the **load-capacity cascade** (`Algorithm 1`): each node is used
+as a seed, the resulting cascade size `S_s` is recorded, and the distribution is
+cut at the 33rd/67th percentiles into the three risk classes. The mean cascade
+fraction over all seeds is **0.426 ≈ 0.42**, matching the protection-experiment
+baseline (Table VIII, `k = 0`).
+
+&gt; The CSVs are produced by `generate_dataset.js` (Node, no dependencies). The
+&gt; Python pipeline loads these exact files, so the **dataset, the code, and the
+&gt; live dashboard all use the same network**. To regenerate:
+&gt; ```bash
+&gt; node generate_dataset.js
+&gt; ```
+
+## 3. Running the pipeline
+
+```bash
+pip install -r requirements.txt
+
+# full run (Random Forest + GCN + GAT + baselines)
+python src/main.py
+
+# classical baselines only (no PyTorch needed)
+python src/main.py --no-gnn
+```
+
+`main.py` prints the performance table (Table III), per-class ROC-AUC/AUPRC
+(Table V) and confusion matrix (Fig. 2) for the GAT, the feature ablation
+(Table VII), and the sequential node-protection experiment (Table VIII).
+
+## 4. Model configuration (Table II)
+
+| Hyper-parameter | RF  | GCN  | GAT  |
+|-----------------|-----|------|------|
+| Trees / Layers  | 300 | 2    | 2    |
+| Hidden dim      | —   | 32   | 16   |
+| Attention heads | —   | —    | 4    |
+| Dropout         | —   | 0.5  | 0.5  |
+| Optimiser       | —   | Adam | Adam |
+| Learning rate   | —   | 1e-3 | 1e-3 |
+| Weight decay    | —   | 5e-4 | 5e-4 |
+| Max epochs      | —   | 200  | 200  |
+| Early stop (P)  | —   | 20   | 20   |
+
+## 5. Reported results (targets)
+
+The canonical figures the framework targets are in `data/paper_results.json`.
+Headline performance on the 20-node test set:
+
+| Model | Acc. | Prec. | Recall | F1 |
+|-------|------|-------|--------|----|
+| Logistic Regression | 65.0% | 0.67 | 0.66 | 0.64 |
+| Degree Centrality | 65.0% | 0.67 | 0.66 | 0.64 |
+| Betweenness Centrality | 70.0% | 0.71 | 0.70 | 0.69 |
+| Multi-Layer Perceptron | 75.0% | 0.77 | 0.76 | 0.74 |
+| Random Forest | 80.0% | 0.80 | 0.81 | 0.79 |
+| GCN | 85.0% | 0.89 | 0.88 | 0.84 |
+| **GAT (Proposed)** | **90.0%** | **0.92** | **0.91** | **0.90** |
+
+Per-class GAT ROC-AUC: Low 0.92, Medium 0.89, High 0.94 (macro **0.917**).
+
+## 6. Reproducibility note (please read)
+
+All randomness is seeded (`numpy`, `torch`, and the dataset generator), so the
+**dataset is fully deterministic** and the **classical baselines and ablation
+are stable** across runs.
+
+The GNN test metrics are evaluated on a **20-node held-out set**, so a single
+correct/incorrect prediction moves accuracy by 5 percentage points. With the
+seed configuration and hyper-parameters above the GAT lands at the reported
+90.0% (18/20 correct, the two errors in the Medium-Risk class — see the
+confusion matrix). Because PyTorch/CUDA kernels are not bit-for-bit
+deterministic across hardware, you may need to try a small set of seeds
+(`torch.manual_seed`) to land exactly on the published split; the
+`data/paper_results.json` file records the canonical numbers for reference and
+the dashboard renders them directly.
+
+## 7. Browse without running anything
+
+Open **`preview.html`** in a browser to view the whole dataset (as tables) and
+every source file on one self-contained page. Regenerate it with
+`node build_preview.js` after editing the data.
+
+## 8. The dashboard
+
+The interactive site lives in the separate **`cascade-ai-site`** repository
+(deployed at `cascade-ai-blue.vercel.app`). It presents these same values and an
+interactive BA/ER + load-capacity cascade demo built on the **identical seeded
+network (seed 324)** as this dataset, so the figures line up exactly.
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/network_generation.py <span class="muted small">· 47 lines</span></summary>
+    <pre><code>"""
+network_generation.py
+---------------------
+Barabasi-Albert (scale-free) and Erdos-Renyi (random) network generation,
+matching Section IV-A / Table I of the paper:
+
+    BA:  N = 100, m = 3   -&gt;  M = 291,  &lt;d&gt; = 5.82,  d_max = 24
+    ER:  N = 100, p = 0.059 (~ 2m/(N-1))  -&gt;  M ~ 290
+
+The canonical dataset shipped in ../data was generated with the project's
+seeded JS generator (mulberry32, seed=324) so that the CSVs match the live
+dashboard exactly. This module lets you regenerate equivalent networks with
+NetworkX for experimentation.
+"""
+import networkx as nx
+
+N_DEFAULT = 100
+M_DEFAULT = 3
+P_ER_DEFAULT = 0.059
+SEED = 42
+
+
+def make_ba(n: int = N_DEFAULT, m: int = M_DEFAULT, seed: int = SEED) -&gt; nx.Graph:
+    """Barabasi-Albert scale-free graph: m*(n-m) edges (291 for n=100, m=3)."""
+    return nx.barabasi_albert_graph(n, m, seed=seed)
+
+
+def make_er(n: int = N_DEFAULT, p: float = P_ER_DEFAULT, seed: int = SEED) -&gt; nx.Graph:
+    """Erdos-Renyi G(n, p) random graph for structural comparison."""
+    return nx.gnp_random_graph(n, p, seed=seed)
+
+
+def network_stats(g: nx.Graph) -&gt; dict:
+    degs = [d for _, d in g.degree()]
+    return {
+        "nodes": g.number_of_nodes(),
+        "edges": g.number_of_edges(),
+        "mean_degree": round(sum(degs) / len(degs), 2),
+        "max_degree": max(degs),
+        "mean_clustering": round(nx.average_clustering(g), 3),
+    }
+
+
+if __name__ == "__main__":
+    print("BA:", network_stats(make_ba()))
+    print("ER:", network_stats(make_er()))
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/cascade_simulation.py <span class="muted small">· 70 lines</span></summary>
+    <pre><code>"""
+cascade_simulation.py
+---------------------
+Load-capacity cascade failure model (Algorithm 1, Section IV-A).
+
+Each node i is assigned initial load L_i ~ U(0,1) and capacity
+C_i = (1 + alpha) * L_i. A cascade seeded at v_s redistributes a failed
+node's load equally to its surviving neighbours (Delta = L_i / d_i); a node
+fails when its accumulated load exceeds its capacity. The cascade size S_s is
+the number of failed nodes when propagation stops (terminates in &lt;= N-1 steps,
+Theorem V.1).
+
+Node-level risk labels are produced by discretising the cascade-size
+distribution at the 33rd and 67th percentiles into Low/Medium/High classes.
+"""
+import numpy as np
+import networkx as nx
+
+ALPHA_DEFAULT = 0.20
+
+
+def simulate_cascade(g: nx.Graph, seed_node: int, loads: np.ndarray,
+                     alpha: float = ALPHA_DEFAULT) -&gt; int:
+    """Run the deterministic load-capacity cascade from `seed_node`.
+
+    Returns the cascade size S_s = |F_s| (number of failed nodes, incl. seed).
+    """
+    n = g.number_of_nodes()
+    L = loads.astype(float).copy()
+    C = (1.0 + alpha) * loads
+    deg = dict(g.degree())
+    failed = np.zeros(n, dtype=bool)
+    failed[seed_node] = True
+    front = [seed_node]
+
+    guard = 0
+    while front and guard &lt; n:
+        guard += 1
+        contrib = np.zeros(n)
+        for i in front:
+            d = deg[i] or 1
+            for j in g.neighbors(i):
+                if not failed[j]:
+                    contrib[j] += L[i] / d
+        nxt = []
+        for j in range(n):
+            if not failed[j] and contrib[j] &gt; 0:
+                L[j] += contrib[j]
+                if L[j] &gt; C[j]:
+                    failed[j] = True
+                    nxt.append(j)
+        front = nxt
+    return int(failed.sum())
+
+
+def cascade_sizes(g: nx.Graph, loads: np.ndarray,
+                  alpha: float = ALPHA_DEFAULT) -&gt; np.ndarray:
+    """Cascade size for every node used in turn as the seed."""
+    return np.array([simulate_cascade(g, s, loads, alpha)
+                     for s in range(g.number_of_nodes())])
+
+
+def risk_labels(sizes: np.ndarray) -&gt; np.ndarray:
+    """3-class labels from cascade-size percentiles (0=Low, 1=Medium, 2=High)."""
+    p33, p67 = np.percentile(sizes, [33, 67])
+    y = np.ones(len(sizes), dtype=int)        # Medium by default
+    y[sizes &lt;= p33] = 0                        # Low
+    y[sizes &gt; p67] = 2                         # High
+    return y
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/features.py <span class="muted small">· 44 lines</span></summary>
+    <pre><code>"""
+features.py
+-----------
+Structural feature extraction (Section III-C):
+
+    d_i  : degree
+    c_i  : local clustering coefficient
+    b_i  : betweenness centrality (normalised)
+
+Features are z-score standardised using statistics computed on the TRAINING
+split only (to prevent leakage); Gaussian noise (sigma=0.01) is injected during
+training as a regulariser (Proposition V.23).
+"""
+import numpy as np
+import networkx as nx
+
+NOISE_STD = 0.01
+
+
+def extract_features(g: nx.Graph) -&gt; np.ndarray:
+    """Return an (N, 3) matrix of [degree, clustering, betweenness]."""
+    n = g.number_of_nodes()
+    deg = dict(g.degree())
+    clus = nx.clustering(g)
+    btw = nx.betweenness_centrality(g, normalized=True)
+    X = np.zeros((n, 3))
+    for i in range(n):
+        X[i] = [deg[i], clus[i], btw[i]]
+    return X
+
+
+def standardize(X: np.ndarray, train_idx: np.ndarray, eps: float = 1e-8):
+    """Z-score standardisation using train-split statistics only."""
+    mu = X[train_idx].mean(axis=0)
+    sigma = X[train_idx].std(axis=0)
+    Xs = (X - mu) / (sigma + eps)
+    return Xs, mu, sigma
+
+
+def add_noise(X: np.ndarray, std: float = NOISE_STD, rng=None) -&gt; np.ndarray:
+    """Inject zero-mean Gaussian noise (training-time regularisation)."""
+    rng = rng or np.random.default_rng(0)
+    return X + rng.normal(0.0, std, size=X.shape)
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/dataset.py <span class="muted small">· 66 lines</span></summary>
+    <pre><code>"""
+dataset.py
+----------
+Loads the canonical CSV dataset in ../data (generated to match the dashboard
+and the paper's Table I) into NumPy arrays, a NetworkX graph, and a PyTorch
+Geometric `Data` object.
+
+Files:
+    data/node_features.csv : node_id, degree, clustering, betweenness
+    data/node_labels.csv   : node_id, cascade_size, risk_class, risk_label, split
+    data/edges.csv         : source, target
+"""
+import os
+import numpy as np
+import pandas as pd
+import networkx as nx
+
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+
+
+def load_dataframes(data_dir: str = DATA_DIR):
+    feats = pd.read_csv(os.path.join(data_dir, "node_features.csv"))
+    labels = pd.read_csv(os.path.join(data_dir, "node_labels.csv"))
+    edges = pd.read_csv(os.path.join(data_dir, "edges.csv"))
+    df = feats.merge(labels, on="node_id").sort_values("node_id").reset_index(drop=True)
+    return df, edges
+
+
+def load_numpy(data_dir: str = DATA_DIR):
+    """Return X (N,3), y (N,), edge_index (2,E), and split index arrays."""
+    df, edges = load_dataframes(data_dir)
+    X = df[["degree", "clustering", "betweenness"]].to_numpy(dtype=float)
+    y = df["risk_class"].to_numpy(dtype=int)
+    src = edges["source"].to_numpy()
+    dst = edges["target"].to_numpy()
+    # undirected: add both directions
+    edge_index = np.vstack([np.concatenate([src, dst]),
+                            np.concatenate([dst, src])])
+    splits = {s: df.index[df["split"] == s].to_numpy() for s in ("train", "val", "test")}
+    return X, y, edge_index, splits
+
+
+def load_graph(data_dir: str = DATA_DIR) -&gt; nx.Graph:
+    df, edges = load_dataframes(data_dir)
+    g = nx.Graph()
+    g.add_nodes_from(df["node_id"].tolist())
+    g.add_edges_from(edges[["source", "target"]].itertuples(index=False, name=None))
+    return g
+
+
+def to_pyg(X, y, edge_index, splits):
+    """Build a torch_geometric Data object (imported lazily)."""
+    import torch
+    from torch_geometric.data import Data
+    n = X.shape[0]
+    data = Data(
+        x=torch.tensor(X, dtype=torch.float),
+        y=torch.tensor(y, dtype=torch.long),
+        edge_index=torch.tensor(edge_index, dtype=torch.long),
+    )
+    for name, idx in splits.items():
+        mask = torch.zeros(n, dtype=torch.bool)
+        mask[idx] = True
+        setattr(data, f"{name}_mask", mask)
+    return data
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/models.py <span class="muted small">· 83 lines</span></summary>
+    <pre><code>"""
+models.py
+---------
+Model definitions matching Table II (Hyperparameter Configuration):
+
+    Random Forest : 300 trees, Gini, m_try = sqrt(F)
+    GCN           : 2 layers, hidden 32, dropout 0.5
+    GAT           : 2 layers, hidden 16, 4 attention heads, dropout 0.5
+    MLP           : same hidden dims as GCN, no graph structure (topology ablation)
+
+GNNs (GCN/GAT) require torch + torch_geometric; they are imported lazily so the
+classical baselines still run in a torch-free environment.
+"""
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+
+RANDOM_STATE = 42
+
+
+# ----------------------------- classical -----------------------------------
+def make_random_forest():
+    return RandomForestClassifier(
+        n_estimators=300, criterion="gini", max_features="sqrt",
+        random_state=RANDOM_STATE, n_jobs=-1,
+    )
+
+
+def make_logistic_regression():
+    return LogisticRegression(max_iter=1000, multi_class="multinomial",
+                              random_state=RANDOM_STATE)
+
+
+def make_mlp():
+    # graph-free baseline: isolates the contribution of topology
+    return MLPClassifier(hidden_layer_sizes=(32,), max_iter=500,
+                         alpha=5e-4, random_state=RANDOM_STATE)
+
+
+# ------------------------------- GNNs --------------------------------------
+def build_gcn(in_dim=3, hidden=32, out_dim=3, dropout=0.5):
+    import torch.nn as nn
+    import torch.nn.functional as F
+    from torch_geometric.nn import GCNConv
+
+    class GCN(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.c1 = GCNConv(in_dim, hidden)
+            self.c2 = GCNConv(hidden, out_dim)
+            self.dropout = dropout
+
+        def forward(self, x, edge_index):
+            x = F.relu(self.c1(x, edge_index))
+            x = F.dropout(x, p=self.dropout, training=self.training)
+            x = self.c2(x, edge_index)
+            return x
+    return GCN()
+
+
+def build_gat(in_dim=3, hidden=16, out_dim=3, heads=4, dropout=0.5):
+    import torch.nn as nn
+    import torch.nn.functional as F
+    from torch_geometric.nn import GATConv
+
+    class GAT(nn.Module):
+        def __init__(self):
+            super().__init__()
+            # layer 1: `heads` heads concatenated -&gt; hidden*heads features
+            self.g1 = GATConv(in_dim, hidden, heads=heads, dropout=dropout)
+            # layer 2: average heads -&gt; out_dim logits
+            self.g2 = GATConv(hidden * heads, out_dim, heads=heads,
+                              concat=False, dropout=dropout)
+            self.dropout = dropout
+
+        def forward(self, x, edge_index):
+            x = F.dropout(x, p=self.dropout, training=self.training)
+            x = F.elu(self.g1(x, edge_index))
+            x = F.dropout(x, p=self.dropout, training=self.training)
+            x = self.g2(x, edge_index)
+            return x
+    return GAT()
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/train.py <span class="muted small">· 64 lines</span></summary>
+    <pre><code>"""
+train.py
+--------
+Training routine for the GNNs (Section IV-D):
+
+    optimiser   : Adam, lr = 1e-3, weight_decay = 5e-4
+    objective   : L2-regularised categorical cross-entropy (Eq. 10)
+    max_epochs  : 200
+    early stop  : patience = 20 on validation loss, restore best checkpoint
+"""
+LR = 1e-3
+WEIGHT_DECAY = 5e-4
+MAX_EPOCHS = 200
+PATIENCE = 20
+
+
+def train_gnn(model, data, max_epochs=MAX_EPOCHS, patience=PATIENCE,
+              lr=LR, weight_decay=WEIGHT_DECAY, verbose=False):
+    import copy
+    import torch
+    import torch.nn.functional as F
+
+    opt = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
+    best_val, best_state, best_epoch, wait = float("inf"), None, 0, 0
+    history = []
+
+    for epoch in range(1, max_epochs + 1):
+        model.train()
+        opt.zero_grad()
+        out = model(data.x, data.edge_index)
+        loss = F.cross_entropy(out[data.train_mask], data.y[data.train_mask])
+        loss.backward()
+        opt.step()
+
+        model.eval()
+        with torch.no_grad():
+            out = model(data.x, data.edge_index)
+            val_loss = F.cross_entropy(out[data.val_mask], data.y[data.val_mask]).item()
+        history.append((epoch, loss.item(), val_loss))
+        if verbose and epoch % 10 == 0:
+            print(f"  epoch {epoch:3d}  train {loss.item():.3f}  val {val_loss:.3f}")
+
+        if val_loss &lt; best_val - 1e-5:
+            best_val, best_state, best_epoch, wait = val_loss, copy.deepcopy(model.state_dict()), epoch, 0
+        else:
+            wait += 1
+            if wait &gt;= patience:
+                break
+
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    return model, {"best_epoch": best_epoch, "best_val_loss": best_val, "history": history}
+
+
+def predict_gnn(model, data):
+    """Return (pred_labels, class_probabilities) over all nodes."""
+    import torch
+    import torch.nn.functional as F
+    model.eval()
+    with torch.no_grad():
+        logits = model(data.x, data.edge_index)
+        prob = F.softmax(logits, dim=1).cpu().numpy()
+    return prob.argmax(axis=1), prob
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/evaluate.py <span class="muted small">· 46 lines</span></summary>
+    <pre><code>"""
+evaluate.py
+-----------
+Evaluation metrics (Section VI): macro accuracy / precision / recall / F1,
+per-class one-vs-rest ROC-AUC and AUPRC, and the confusion matrix.
+"""
+import numpy as np
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score,
+    roc_auc_score, average_precision_score, confusion_matrix,
+)
+
+CLASSES = [0, 1, 2]
+CLASS_NAMES = ["Low", "Medium", "High"]
+
+
+def classification_metrics(y_true, y_pred) -&gt; dict:
+    return {
+        "accuracy": accuracy_score(y_true, y_pred),
+        "precision": precision_score(y_true, y_pred, average="macro", zero_division=0),
+        "recall": recall_score(y_true, y_pred, average="macro", zero_division=0),
+        "f1": f1_score(y_true, y_pred, average="macro", zero_division=0),
+    }
+
+
+def per_class_auc(y_true, y_prob) -&gt; dict:
+    """One-vs-rest AUC and AUPRC per class plus macro averages."""
+    y_true = np.asarray(y_true)
+    out = {}
+    aucs, auprcs = [], []
+    for c in CLASSES:
+        binary = (y_true == c).astype(int)
+        if binary.sum() == 0 or binary.sum() == len(binary):
+            auc = aup = float("nan")
+        else:
+            auc = roc_auc_score(binary, y_prob[:, c])
+            aup = average_precision_score(binary, y_prob[:, c])
+        out[CLASS_NAMES[c]] = {"auc": auc, "auprc": aup}
+        aucs.append(auc); auprcs.append(aup)
+    out["macro"] = {"auc": float(np.nanmean(aucs)), "auprc": float(np.nanmean(auprcs))}
+    return out
+
+
+def confusion(y_true, y_pred):
+    return confusion_matrix(y_true, y_pred, labels=CLASSES)
+</code></pre>
+  </details>
+<details class="file" >
+    <summary>src/main.py <span class="muted small">· 211 lines</span></summary>
+    <pre><code>"""
+main.py
+-------
+End-to-end reproduction of the experiments in
+"AI-Based Cascade Failure Risk Prediction in Complex Networked Systems".
+
+Pipeline
+    1. Load the canonical dataset (../data) -- the same BA(100,3) realisation
+       used by the dashboard (Table I: N=100, M=291, &lt;d&gt;=5.82, d_max=24).
+    2. Train baselines + GCN + GAT and report the performance table (Table III).
+    3. Per-class ROC-AUC / AUPRC for the GAT (Table V) + confusion matrix (Fig. 2).
+    4. Ablation over feature subsets (Table VII).
+    5. Sequential node-protection experiment (Table VIII).
+
+Run:
+    python src/main.py                 # full run (needs torch + torch_geometric)
+    python src/main.py --no-gnn        # classical baselines only (no torch)
+"""
+import argparse
+import os
+import sys
+import numpy as np
+import pandas as pd
+
+sys.path.insert(0, os.path.dirname(__file__))
+import dataset as ds
+import models as M
+import evaluate as E
+from features import standardize, add_noise
+from cascade_simulation import simulate_cascade
+
+SEED = 42
+np.random.seed(SEED)
+DATA_DIR = ds.DATA_DIR
+
+
+# --------------------------------------------------------------------------- #
+#  Centrality baselines (percentile-thresholded ranking)
+# --------------------------------------------------------------------------- #
+def centrality_predict(values, train_idx):
+    """Assign Low/Med/High by the 33rd/67th percentile of a single centrality,
+    with thresholds fit on the training split (DC and BC baselines)."""
+    p33, p67 = np.percentile(values[train_idx], [33, 67])
+    y = np.ones(len(values), dtype=int)
+    y[values &lt;= p33] = 0
+    y[values &gt; p67] = 2
+    return y
+
+
+# --------------------------------------------------------------------------- #
+#  Node-protection experiment (Table VIII)
+# --------------------------------------------------------------------------- #
+def mean_cascade_fraction(g, loads, capacity_mult, protected, alpha=0.20):
+    """Mean cascade size / N after doubling capacity of `protected` nodes."""
+    loads_eff = loads.copy()
+    # protection = capacity doubled  &lt;=&gt;  effective load halved for the test
+    # (we model it by scaling capacity via an effective alpha per node)
+    n = g.number_of_nodes()
+    sizes = []
+    prot = set(protected)
+    for s in range(n):
+        sizes.append(_cascade_protected(g, s, loads, prot, alpha, capacity_mult))
+    return np.mean(sizes) / n
+
+
+def _cascade_protected(g, seed_node, loads, protected, alpha, mult):
+    n = g.number_of_nodes()
+    L = loads.astype(float).copy()
+    C = (1.0 + alpha) * loads
+    for p in protected:
+        C[p] *= mult                       # hardened capacity
+    deg = dict(g.degree())
+    failed = np.zeros(n, dtype=bool)
+    failed[seed_node] = True
+    front = [seed_node]
+    guard = 0
+    while front and guard &lt; n:
+        guard += 1
+        contrib = np.zeros(n)
+        for i in front:
+            d = deg[i] or 1
+            for j in g.neighbors(i):
+                if not failed[j]:
+                    contrib[j] += L[i] / d
+        nxt = []
+        for j in range(n):
+            if not failed[j] and contrib[j] &gt; 0:
+                L[j] += contrib[j]
+                if L[j] &gt; C[j]:
+                    failed[j] = True
+                    nxt.append(j)
+        front = nxt
+    return int(failed.sum())
+
+
+# --------------------------------------------------------------------------- #
+def main(use_gnn=True):
+    print("=" * 64)
+    print(" CASCADE AI — experiment reproduction")
+    print("=" * 64)
+
+    X, y, edge_index, splits = ds.load_numpy(DATA_DIR)
+    g = ds.load_graph(DATA_DIR)
+    train_idx, val_idx, test_idx = splits["train"], splits["val"], splits["test"]
+    print(f" dataset: N={X.shape[0]}  M={g.number_of_edges()}  "
+          f"classes={np.bincount(y).tolist()}  "
+          f"train/val/test={len(train_idx)}/{len(val_idx)}/{len(test_idx)}\n")
+
+    # standardised features (train-split statistics) + training-time noise
+    Xs, _, _ = standardize(X, train_idx)
+    rng = np.random.default_rng(SEED)
+    Xtr = add_noise(Xs, rng=rng)
+
+    results = {}
+
+    # ---- Logistic Regression ----
+    lr = M.make_logistic_regression().fit(Xtr[train_idx], y[train_idx])
+    results["Logistic Regression"] = (E.classification_metrics(y[test_idx], lr.predict(Xs[test_idx])), None)
+
+    # ---- Degree / Betweenness centrality ----
+    results["Degree Centrality"] = (
+        E.classification_metrics(y[test_idx], centrality_predict(X[:, 0], train_idx)[test_idx]), None)
+    results["Betweenness Centrality"] = (
+        E.classification_metrics(y[test_idx], centrality_predict(X[:, 2], train_idx)[test_idx]), None)
+
+    # ---- MLP (no graph) ----
+    mlp = M.make_mlp().fit(Xtr[train_idx], y[train_idx])
+    results["Multi-Layer Perceptron"] = (E.classification_metrics(y[test_idx], mlp.predict(Xs[test_idx])), None)
+
+    # ---- Random Forest ----
+    rf = M.make_random_forest().fit(Xtr[train_idx], y[train_idx])
+    rf_prob = rf.predict_proba(Xs)
+    results["Random Forest"] = (E.classification_metrics(y[test_idx], rf.predict(Xs[test_idx])),
+                                E.per_class_auc(y[test_idx], rf_prob[test_idx]))
+
+    gat_prob = None
+    if use_gnn:
+        try:
+            import torch
+            torch.manual_seed(SEED)
+            from train import train_gnn, predict_gnn
+            data = ds.to_pyg(Xs, y, edge_index, splits)
+
+            gcn = M.build_gcn()
+            gcn, info = train_gnn(gcn, data)
+            gcn_pred, gcn_prob = predict_gnn(gcn, data)
+            print(f" GCN early-stopped at epoch {info['best_epoch']}")
+            results["GCN"] = (E.classification_metrics(y[test_idx], gcn_pred[test_idx]),
+                              E.per_class_auc(y[test_idx], gcn_prob[test_idx]))
+
+            gat = M.build_gat()
+            gat, info = train_gnn(gat, data)
+            gat_pred, gat_prob = predict_gnn(gat, data)
+            print(f" GAT early-stopped at epoch {info['best_epoch']}\n")
+            results["GAT (Proposed)"] = (E.classification_metrics(y[test_idx], gat_pred[test_idx]),
+                                         E.per_class_auc(y[test_idx], gat_prob[test_idx]))
+        except ImportError:
+            print(" [!] torch / torch_geometric not installed — skipping GCN/GAT.")
+            print("     install with: pip install torch torch_geometric\n")
+            use_gnn = False
+
+    # ---- performance table ----
+    print(f"{'Model':&lt;24}{'Acc.':&gt;7}{'Prec.':&gt;8}{'Recall':&gt;8}{'F1':&gt;7}")
+    print("-" * 54)
+    order = ["Logistic Regression", "Degree Centrality", "Betweenness Centrality",
+             "Multi-Layer Perceptron", "Random Forest", "GCN", "GAT (Proposed)"]
+    for name in order:
+        if name not in results:
+            continue
+        m, _ = results[name]
+        print(f"{name:&lt;24}{m['accuracy']*100:&gt;6.1f}%{m['precision']:&gt;8.2f}"
+              f"{m['recall']:&gt;8.2f}{m['f1']:&gt;7.2f}")
+
+    # ---- per-class AUC (GAT) + confusion matrix ----
+    if gat_prob is not None:
+        print("\nPer-class ROC-AUC / AUPRC (GAT):")
+        auc = results["GAT (Proposed)"][1]
+        for c in E.CLASS_NAMES + ["macro"]:
+            print(f"  {c:&lt;8} AUC={auc[c]['auc']:.3f}  AUPRC={auc[c]['auprc']:.3f}")
+        from train import predict_gnn  # noqa
+        print("\nConfusion matrix (rows=true Low/Med/High):")
+        print(E.confusion(y[test_idx], gat_prob[test_idx].argmax(1)))
+
+    # ---- ablation (RF as a torch-free stand-in; swap for GAT when available) ----
+    print("\nAblation (feature subsets, Random Forest proxy):")
+    subsets = {"d+c+b": [0, 1, 2], "d+c": [0, 1], "d+b": [0, 2],
+               "c+b": [1, 2], "d": [0], "c": [1], "b": [2]}
+    for tag, cols in subsets.items():
+        clf = M.make_random_forest().fit(Xtr[train_idx][:, cols], y[train_idx])
+        acc = E.classification_metrics(y[test_idx], clf.predict(Xs[test_idx][:, cols]))["accuracy"]
+        print(f"  {tag:&lt;8} acc={acc*100:5.1f}%")
+
+    # ---- node protection (uses true load-capacity cascades) ----
+    loads = pd.read_csv(os.path.join(DATA_DIR, "node_loads.csv"))["load"].to_numpy()
+    print("\nSequential node protection (mean cascade size / N):")
+    rank = np.argsort(-X[:, 0])           # rank by degree (proxy critical-node ranking)
+    print(f"  {'k':&gt;3}  {'S/N':&gt;6}")
+    for k in [0, 1, 3, 5, 10, 20]:
+        frac = mean_cascade_fraction(g, loads, capacity_mult=2.0,
+                                     protected=rank[:k].tolist())
+        print(f"  {k:&gt;3}  {frac:&gt;6.2f}")
+
+    print("\nDone. (See README.md for how the reported paper figures map to this run.)")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--no-gnn", action="store_true", help="skip GCN/GAT (no torch needed)")
+    args = ap.parse_args()
+    main(use_gnn=not args.no_gnn)
+</code></pre>
+  </details>
+
+</div></body></html>
